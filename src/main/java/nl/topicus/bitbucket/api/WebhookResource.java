@@ -86,7 +86,12 @@ public class WebhookResource {
     private WebHookConfigurationModel createOrUpdateWebhook(Repository repo, String configId,
                                                             WebHookConfigurationModel updatedWebhook) {
         WebHookConfiguration createdWebhook = webHookConfigurationDao.createOrUpdateWebHookConfiguration(
-                repo, configId, updatedWebhook.getTitle(), updatedWebhook.getUrl(), updatedWebhook.getCommittersToIgnore(), updatedWebhook.getBranchesToIgnore(), updatedWebhook.isEnabled());
+                repo, configId, updatedWebhook.getTitle(), updatedWebhook.getUrl(), updatedWebhook.getCommittersToIgnore(),
+                updatedWebhook.getBranchesToIgnore(), updatedWebhook.isEnabled(), updatedWebhook.isTagCreated(),
+                updatedWebhook.isBranchDeleted(), updatedWebhook.isBranchCreated(), updatedWebhook.isRepoPush(),
+                updatedWebhook.isPrDeclined(), updatedWebhook.isPrRescoped(), updatedWebhook.isPrMerged(),
+                updatedWebhook.isPrReopened(), updatedWebhook.isPrUpdated(), updatedWebhook.isPrCreated(),
+                updatedWebhook.isPrCommented(), updatedWebhook.isBuildStatus());
 
         return new WebHookConfigurationModel(createdWebhook);
     }
